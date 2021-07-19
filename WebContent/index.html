@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Responsive Header</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="font/fonts.css" rel="stylesheet">
+	<!--make website responsive-->
+	<meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">   
+    <link rel="stylesheet" type="text/css" href="css/all.css">  
+   <!--   
+     <style>
+     table tr:not(:first-child){
+        cursor: pointer;transition: all .25s ease-in-out;
+     }
+     table tr:not(:first-child)hover{background-color: #ddd;}
+     </style>--> 
+	</head>
+<body>
+
+ <!--Add invoice popup-->
+ <div class="modal_parent customcss_popup">
+    <div class="modal fade" id="AddInvoice" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">                    
+                    <div class="col-sm-11 col-xs-11">
+                        <h5 class="modal-title">Add Invoice</h5>
+                    </div>
+                    <div class="col-xs-1 col-sm-1">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>									
+                </div>
+                <div class="modal-body">
+                    <div class="form_parent">
+                        <form action="./InsertData" method="post">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Customer Name <span>*</span></label>
+                                    <input type="text"  name="name_customer" class="input_field" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Customer No. <span>*</span></label>
+                                    <input type="text" name="cust_number" class="input_field"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Invoice no. <span>*</span></label>
+                                    <input type="text" name="invoice_id" class="input_field"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Invoice Amount  <span>*</span></label>
+                                    <input type="text" name="total_open_amount" class="input_field"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Due date  <span>*</span></label>
+                                    <input type="date" name="due_in_date" class="input_field"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Notes  <span>*</span></label>
+                                   <input type="text" name="notes" rows="6" cols="3"  class="input_field" />
+                                </div>
+                            </div>
+                          
+                            <input type="submit"/>
+                        </form>
+                    </div>
+                   										
+                </div>
+
+                <div class="modal-footer">
+                    <div class="col-sm-4 text-left">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                    <div class="col-sm-8">
+                        <button type="button" class="btn btn-default">Clear</button>
+                        
+                        <button type="button" class="btn btn-primary">Add</button>
+                    </div>                   
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--end Add invoice popup-->
+<!--  Edit popup-->
+
+<div class="modal_parent customcss_popup">
+    <div class="modal fade" id="EditInvoice" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">                    
+                    <div class="col-sm-11 col-xs-11">
+                        <h5 class="modal-title">Edit Invoice</h5>
+                    </div>
+                    <div class="col-xs-1 col-sm-1">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>									
+                </div>
+                <div class="modal-body">
+                    <div class="form_parent">
+                        <form action ="./Update" method="post">
+                            <!-- <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Customer Name <span>*</span></label>
+                                    <input type="text" class="input_field"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Customer No. <span>*</span></label>
+                                    <input type="text" class="input_field"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Invoice no. <span>*</span></label>
+                                    <input type="text" class="input_field"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Invoice Amount  <span>*</span></label>
+                                    <input type="text" class="input_field"/>
+                                </div>
+                            </div> -->
+                            <div class="col-sm-12">
+                            <div class="form-group">
+                                    <label>Invoice Id  <span>*</span></label>
+                                    <input type="text" class="input_field" name = "invoice_id"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Invoice Amount   <span>*</span></label>
+                                    <input type="text" class="input_field" name = "total_open_amount"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Notes  <span>*</span></label>
+                                   <textarea rows="6" cols="3" class="input_field" name="notes"></textarea>
+                                </div>
+                            </div>
+                            <input type="submit"/>
+                        </form>
+                    </div>
+                   										
+                </div>
+
+                <div class="modal-footer">
+                    <div class="col-sm-4 text-left">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                    <div class="col-sm-8">
+                        <button type="button" class="btn btn-default">Reset</button>
+                        <button type="button" class="btn btn-primary">Save</button>
+                    </div>                   
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--end Edit popup-->
+
+
+
+<!--  delete popup-->
+
+<div class="modal_parent customcss_popup">
+    <div class="modal fade" id="DeleteInvoice" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">                    
+                    <div class="col-sm-11 col-xs-11">
+                        <h5 class="modal-title">Delete record(s)?</h5>
+                    </div>
+                    <div class="col-xs-1 col-sm-1">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>									
+                </div>
+                <div class="modal-body">
+                    <div class="form_parent">
+                        <form action ="./Delete" method="post">
+                            
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Invoice Id  <span>*</span></label>
+                                    <input type="text" class="input_field" name = "invoice_id"/>
+                                </div>
+                                
+                            </div>
+                             <input type="submit"/>
+                        </form>
+                    </div>
+
+
+                    <p>You'll lose your record(s) after this action. We can't recover them once you delete. Are you sure you want to permanently delete them?</p>
+                   										
+                </div>
+
+                <div class="modal-footer">
+                    <div class="col-sm-4 text-left">
+                        
+                    </div>
+                    <div class="col-sm-8">
+                        
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Delete</button>
+                        </div>
+                                     
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--end delete popup-->
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="main-container">
+    <div class="row">
+        <div class="col-sm-12 col-xs-12">
+            <div class="col-sm-5 col-xs-12">
+                <div class="logo-cls">
+                    <img src="images/Group_20399@2x.png"/>
+                </div>
+            </div>
+            <div class="col-sm-7 col-xs-12">
+                <div class="logo-cls-two">
+                    <img src="images/logo@2x.png"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-xs-12">
+            <p class="sub-heading">Invoice List</p>
+        </div>
+    </div>
+   
+
+    <div class="second_container">      
+        <div class="col-xs-12 col-sm-12">
+            <div class="header-Buttons-Box">      
+                <a href="javascript:void(0)" data-toggle="modal" data-target="#AddInvoice" data-backdrop="static"> <i class="fas fa-plus"></i> &nbsp; Add</a>
+                <a href="javascript:void(0)" data-toggle="modal" data-target="#EditInvoice" data-backdrop="static"> <i class="fas fa-pencil-alt"></i> &nbsp; Edit</a>
+                <a href="javascript:void(0)"  data-toggle="modal" data-target="#DeleteInvoice" data-backdrop="static"><i class="fas fa-minus"></i> &nbsp; Delete</a> 
+                <div class="searchbox">           
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by InvoiceId..." name="search">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>     
+            </div>
+        </div>
+        <!--bootstrap grid in which sm for tablet,xs for mobile-->
+        <div class="col-sm-12 col-xs-12" id ="main_table_table">
+            <button class="page_previous" onclick="previous_page()" >&lt;</button>
+            <table class="table table-dark" id ="final_table">
+                <thead>
+                    
+                    <tr>
+                        <th><input type="checkbox"></th>
+                        <th>Customer Name</th>										
+                        <th>Customer #</th>
+                        <th>Invoice #</th>
+                        <th>Invoice Amount</th>	
+                        <th>Due Date</th>
+                        <th>predicted payment date</th>
+                        <th>Notes</th>
+                    </tr>	
+                </thead>
+                <tbody id="ProductTable1">
+                   
+                </tbody>
+            </table>
+            <button class="page_next" onclick="next_page()" >&gt;</button>
+        </div>
+        <script src="js/table.js"></script>
+    </div>
+
+
+
+</div>
+
+
+
+<!-- jQuery library -->
+<!-- <script src="js/query.min.js"></script> -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.js"></script>
+<!--<script src="js/dataTables.bootstrap.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>-->
+
+<!--
+<script>
+    $('#ProductTable').DataTable();
+</script>
+
+<script>
+     
+    fetch("http://localhost:8080/Summer_Internship_Backend/Invoice").then(
+        res=>{
+            
+            res.json().then(
+                data=>{   
+                    console.log(ProductTable1);
+                    if(ProductTable1.length > 0){
+                         var temp ="";
+                         ProductTable1.forEach((u)=>{
+                             temp += "<tr>";
+                             temp += "<td>" + u.name_customer+"</td>";
+                             temp += "<td>" + u.cust_number+"</td>";
+                             temp += "<td>" + u.invoice_id+"</td>";
+                             temp += "<td>" + u.due_in_date+"</td>";
+                             temp += "<td>" + u.predicted_payment_date+"</td></tr>";
+                         })
+                         document.getElementById("ProductTable1").innerHTML = temp;
+                    }
+                    
+                }
+            )
+        }
+       
+    )
+    .catch(
+        error=>{
+            console.log(error);
+        }
+    )
+</script>-->
+<script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("ProductTable1");
+      tr = table.getElementsByTagName("tr");
+    
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[3];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>
+  <!--    <script> 
+    var table = document.getElementById('ProductTable1') , rIndex;
+    for(var i =0; i<table.rows.length; i++){
+    	table.rows[i].onclick = function()
+    	{
+    		rIndex = this.rowIndex;
+    		console.log(rIndex);
+    	};
+    }
+    </script>
+      
+    -->
+</body>
+</html>
+

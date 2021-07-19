@@ -1,0 +1,50 @@
+@media only screen and (max-width: 1200px){
+
+}
+
+
+
+@media only screen and (max-width: 998px){
+.banner_search_bar .example button {
+    width: 15%;
+}
+
+}
+
+
+@media only screen and (max-width: 767px){
+.header_section .navbar-collapse {
+    background: #000c;
+}
+.header_section .navbar {
+    background: #000000b8;
+}
+.header_section .navbar-toggle {
+    margin-top: 16px;
+}
+.banner_search_bar {
+    width: 95%;
+    padding: 0px 30px;
+}
+.banner_search_bar .example button {
+    width: 20%;
+}
+
+.navbar-toggle {
+    margin-top: 16px;
+}
+.navbar-collapse {
+    padding-right: 15px;
+    position: absolute;
+    background: #fff;
+    z-index: 11;
+    width: 100%;
+}
+.custome_cls {
+    display: inline-block;
+    width: 100%;
+}
+.navbar-nav {
+    margin: 0px;
+}
+}
